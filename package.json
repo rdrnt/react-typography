@@ -1,6 +1,6 @@
 {
-  "name": "react-typography",
-  "version": "0.1.0",
+  "name": "@rileyyy/react-typography",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "umd:main": "dist/react-typography.umd.production.js",
   "module": "dist/react-typography.es.production.js",
