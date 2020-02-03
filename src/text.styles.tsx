@@ -21,7 +21,6 @@ export let DefaultTagStyles: {
   `,
   h4: css`
     font-size: 28px;
-    line-height: 1.6;
     letter-spacing: -0.5px;
     font-weight: 600;
   `,
@@ -32,7 +31,6 @@ export let DefaultTagStyles: {
   h6: css`
     font-weight: 700;
     font-size: 14px;
-    line-height: 20px;
     letter-spacing: 0.24px;
   `,
   p: css`
