@@ -59,7 +59,6 @@ export let DefaultStyles = css`
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   color: black;
-  font-weight: normal;
 `;
 
 export const overrideDefaultTagStyles = (
