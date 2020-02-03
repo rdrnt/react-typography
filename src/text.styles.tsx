@@ -37,6 +37,8 @@ export let DefaultTagStyles: {
   `,
   p: css`
     font-size: 16px;
+    line-height: 20px;
+    font-weight: 300;
   `,
   span: css`
     font-size: 11px;
@@ -60,7 +62,6 @@ export let DefaultStyles = css`
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   color: black;
   font-weight: normal;
-  line-height: 1;
 `;
 
 export const overrideDefaultTagStyles = (
