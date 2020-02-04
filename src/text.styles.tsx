@@ -1,55 +1,60 @@
-import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { TextStyleProps, SupportedTextTags } from './types';
 
 export let DefaultTagStyles: {
-  [key in SupportedTextTags]: FlattenSimpleInterpolation;
+  [key in SupportedTextTags]: TextStyleProps;
 } = {
-  h1: css`
-    font-size: 80px;
-    font-weight: 600;
-    letter-spacing: -0.04em;
-  `,
-  h2: css`
-    font-size: 45px;
-    font-weight: 600;
-    letter-spacing: -0.03em;
-  `,
-  h3: css`
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  `,
-  h4: css`
-    font-size: 28px;
-    letter-spacing: -0.5px;
-    font-weight: 600;
-  `,
-  h5: css`
-    font-size: 23px;
-    font-weight: 500;
-  `,
-  h6: css`
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.24px;
-  `,
-  p: css`
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 300;
-  `,
-  span: css`
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  `,
-  a: css`
-    font-size: 16px;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-  `,
+  h1: {
+    size: 80,
+    weight: 600,
+    letterSpacing: -0.03,
+  },
+  h2: {
+    size: 45,
+    weight: 600,
+    letterSpacing: -0.02,
+  },
+  h3: {
+    size: 36,
+    weight: 700,
+    letterSpacing: -0.03,
+  },
+  h4: {
+    size: 28,
+    weight: 600,
+    letterSpacing: -0.05,
+  },
+  h5: {
+    size: 23,
+    weight: 500,
+  },
+  h6: {
+    size: 14,
+    weight: 700,
+  },
+  p: {
+    size: 16,
+    weight: 300,
+    lineHeight: 20,
+  },
+  span: {
+    size: 11,
+    letterSpacing: 0.5,
+    css: css`
+      text-transform: uppercase;
+    `,
+  },
+  a: {
+    size: 16,
+    weight: 600,
+    letterSpacing: -0.03,
+    css: css`
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    `,
+  },
 };
 
 export let DefaultStyles = css`
@@ -78,16 +83,15 @@ export const overrideDefaultStyles = (
   `;
 };
 
-// it wont always be an h1, because we use the `as` attribute
-export const StyledText = styled.h1<
-  TextStyleProps & { useTagStyle: SupportedTextTags }
->`
-  ${DefaultStyles};
-  ${props => DefaultTagStyles[props.useTagStyle]};
+export const createTextStyles = (props: TextStyleProps) => css<TextStyleProps>`
+  ${props.size && `font-size: ${props.size}px`};
+  ${props.weight && `font-weight: ${props.weight}`};
+  ${props.color && `color: ${props.color}`};
+  ${props.lineHeight && `line-height: ${props.lineHeight}px`};
+  ${props.letterSpacing && `letter-spacing: ${props.letterSpacing}em`};
+  ${props.css && props.css};
+`;
 
-  ${props => props.weight && `font-weight: ${props.weight}`};
-  ${props => props.color && `color: ${props.color}`};
-  ${props => props.lineHeight && `line-height: ${props.lineHeight}px`};
-  ${props => props.letterSpacing && `letter-spacing: ${props.letterSpacing}px`};
-  ${props => props.css && props.css};
+export const BaseStyledText = styled.h1`
+  ${DefaultStyles};
 `;

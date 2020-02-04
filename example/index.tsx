@@ -7,7 +7,9 @@ const App = () => {
   return (
     <div>
       {Object.keys(DefaultTagStyles).map(key => (
-        <Text tag={key}>{key} example</Text>
+        <Text tag={key} key={key} style={{ color: 'green' }}>
+          {`${key} example`}
+        </Text>
       ))}
     </div>
   );
