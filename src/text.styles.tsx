@@ -83,13 +83,21 @@ export const overrideDefaultStyles = (
   `;
 };
 
-export const createTextStyles = (props: TextStyleProps) => css<TextStyleProps>`
-  ${props.size && `font-size: ${props.size}px`};
-  ${props.weight && `font-weight: ${props.weight}`};
-  ${props.color && `color: ${props.color}`};
-  ${props.lineHeight && `line-height: ${props.lineHeight}px`};
-  ${props.letterSpacing && `letter-spacing: ${props.letterSpacing}em`};
-  ${props.css && props.css};
+export const createTextStyles = ({
+  styles,
+  applyDefaultStyles,
+}: {
+  styles: TextStyleProps;
+  applyDefaultStyles?: boolean;
+}) => css<TextStyleProps>`
+  ${applyDefaultStyles && DefaultStyles};
+
+  ${styles.size && `font-size: ${styles.size}px`};
+  ${styles.weight && `font-weight: ${styles.weight}`};
+  ${styles.color && `color: ${styles.color}`};
+  ${styles.lineHeight && `line-height: ${styles.lineHeight}px`};
+  ${styles.letterSpacing && `letter-spacing: ${styles.letterSpacing}em`};
+  ${styles.css && styles.css};
 `;
 
 export const BaseStyledText = styled.h1`

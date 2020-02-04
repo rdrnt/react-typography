@@ -17,13 +17,20 @@ const Text = styled(({ style, tag, children, ...rest }: TextProps) => (
 ))`
   ${props =>
     createTextStyles({
-      ...DefaultTagStyles[
-        (props.useTagStyle as SupportedTextTags) || props.tag
-      ],
-      ...props.style,
+      styles: {
+        ...DefaultTagStyles[
+          (props.useTagStyle as SupportedTextTags) || props.tag
+        ],
+        ...props.style,
+      },
     })}
 `;
 
-export { overrideDefaultTagStyles, overrideDefaultStyles, DefaultTagStyles };
+export {
+  overrideDefaultTagStyles,
+  overrideDefaultStyles,
+  DefaultTagStyles,
+  createTextStyles,
+};
 
 export default Text;
