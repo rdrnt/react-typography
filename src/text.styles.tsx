@@ -74,7 +74,6 @@ export const overrideDefaultStyles = (
   newStyles: typeof DefaultStyles
 ): void => {
   DefaultStyles = css`
-    ${DefaultStyles};
     ${newStyles};
   `;
 };
@@ -88,4 +87,7 @@ export const StyledText = styled.h1<
 
   ${props => props.weight && `font-weight: ${props.weight}`};
   ${props => props.color && `color: ${props.color}`};
+  ${props => props.lineHeight && `line-height: ${props.lineHeight}px`};
+  ${props => props.letterSpacing && `letter-spacing: ${props.letterSpacing}px`};
+  ${props => props.css && props.css};
 `;

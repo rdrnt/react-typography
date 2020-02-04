@@ -1,12 +1,14 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Text from '../.';
+import Text, { DefaultTagStyles } from '../.';
 
 const App = () => {
   return (
     <div>
-      <Text tag="h1">Example</Text>
+      {Object.keys(DefaultTagStyles).map(key => (
+        <Text tag={key}>{key} example</Text>
+      ))}
     </div>
   );
 };

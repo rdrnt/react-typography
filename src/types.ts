@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+
 export type SupportedTextTags =
   | 'h1'
   | 'h2'
@@ -12,6 +14,9 @@ export type SupportedTextTags =
 export interface TextStyleProps {
   weight?: string | number;
   color?: string;
+  lineHeight?: number;
+  letterSpacing?: number;
+  css?: typeof css;
 }
 
 export interface TextProps extends TextStyleProps {

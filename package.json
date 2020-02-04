@@ -12,7 +12,8 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test --env=jsdom",
-    "watch": "tsdx watch"
+    "watch": "tsdx watch",
+    "prepublishOnly": "tsdx build"
   },
   "peerDependencies": {
     "react": ">=16",
