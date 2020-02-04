@@ -10,7 +10,41 @@ import Text from '@rileyyy/react-typography';
 const Example = () => <Text tag="h1">Hello!</Text>;
 ```
 
-## API
+## Props
+
+### tag
+
+The type of tag the element should be, and what styles should be used.
+
+### useTagStyle (optional)
+
+The tag styles you like to use. This allows you to render h1 elements, with the styles from p.
+
+e.x
+
+```jsx
+<Text tag="h1" useTagStyle="p">
+  This will be an h1 element with p's styles!
+</Text>
+```
+
+### style (optional)
+
+Used for overriding styles. You can either use the `overrideDefaultTagStyles()` which is explained below, or the `style` prop for one time changes.
+
+e.x
+
+```jsx
+<Text tag="p" style={{ color: 'red', weight: 600 }}>
+  blah blah blah
+</Text>
+```
+
+### children
+
+The string of text you want rendered.
+
+## Utilities
 
 ### Overriding styles
 
